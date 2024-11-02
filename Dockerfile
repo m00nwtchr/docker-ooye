@@ -1,7 +1,7 @@
-FROM node:18-alpine
+FROM node:22-alpine
 
 RUN apk add --no-cache git
-RUN git clone --depth 1 --branch v2.3 https://gitdab.com/cadence/out-of-your-element.git /app
+RUN git clone --depth 1 --branch v3.0-beta5 https://gitdab.com/cadence/out-of-your-element.git /app
 WORKDIR /app
 RUN npm i
 
