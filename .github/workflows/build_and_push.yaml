@@ -28,7 +28,7 @@ jobs:
         with:
           # list of Docker images to use as base name for tags
           images: |
-            ghcr.io/m00nwtchr/ooye
+            ghcr.io/m00nwtchr/docker-ooye
 
           # generate Docker tags based on the following events/attributes
           tags: |
