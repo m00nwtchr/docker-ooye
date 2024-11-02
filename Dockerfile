@@ -5,11 +5,11 @@ RUN git clone --depth 1 --branch v3.0-beta5 https://gitdab.com/cadence/out-of-yo
 WORKDIR /app
 RUN npm i
 
-RUN adduser ooye -Du 1001
-RUN chown -R ooye /app
-RUN ln -s /data/ooye.db /app/db/ooye.db
-RUN mkdir /data && chown -R ooye:ooye /data
-USER ooye
+#RUN adduser ooye -Du 1001
+#RUN chown -R ooye /app
+#RUN ln -s /data/ooye.db /app/db/ooye.db
+RUN mkdir /data
+#USER ooye
 
 ENV DISCORD_TOKEN="notarealdiscordtoken"
 ENV SERVER_NAME="notmyrealserver.com"
@@ -27,8 +27,8 @@ ENV URL="http://localhost:6693"
 ENV HS_TOKEN="[a unique 64 character hex string]"
 ENV AS_TOKEN="[a unique 64 character hex string]"
 
-VOLUME /app/db
+#VOLUME /app/db
 
-COPY --chmod=744 --chown=ooye:ooye ./docker-entrypoint.sh /docker-entrypoint.sh
+COPY --chmod=755 ./docker-entrypoint.sh /docker-entrypoint.sh
 ENTRYPOINT ["/docker-entrypoint.sh"]
 
